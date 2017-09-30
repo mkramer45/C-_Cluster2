@@ -1,0 +1,53 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApplication45
+{
+    class Polygon /// this will be our base class, parent class
+    {
+        public int width, height;
+        public void setValues(int a, int b)
+        {
+            this.width = a;
+            this.height = b; /// not sure what this' function is, should look up
+        }
+    }
+    class Rectangle : Polygon   /// whenever u want to inherit from a parent class.. colon + parent class name
+                                /// inheriting variables from polygon class
+                                /// we haven't defined variables for width, height .. but no need to when we inherit
+                        
+    {
+        public int area()
+        {
+            return width * height;
+        }
+    }
+
+    class Triangle : Polygon    /// another derived class ... have access to the following variables: width & height & setValues method
+
+    {
+        public int area()
+        {
+            return width * height/2;
+        }
+    }
+
+    class Program /// inhereitence allows us to define a class, in term of another class ... allows to re-use code which reduces error
+
+    {
+        static void Main(string[] args)
+        {
+            Rectangle rect = new Rectangle();
+            Triangle trig = new Triangle(); /// here we are defining our instances of the rectangle, triangle classes
+            rect.setValues(10, 20);
+            trig.setValues(30, 20);
+
+            Console.WriteLine("Rectangle area = {0}", rect.area());
+            Console.WriteLine("Triangle area = {0}", trig.area());  /// using placeholderrs, look more into these
+
+        }
+    }
+}
